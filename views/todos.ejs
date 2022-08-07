@@ -1,30 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ToDo App</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
-    <h1>Todos</h1>
-    <ul>
-    <% todos.forEach( el => { %>
-        <li class='todoItem' data-id='<%=el._id%>'>
-            <span class='<%= el.completed === true ? 'completed' : 'not'%>'><%= el.todo %></span>
-            <span class='del'> Delete </span>
-        </li>
-    <% }) %>    
-    </ul>
 
-    <h2>Things left to do: <%= left %></h2>
+    <div class="container">
+        <h1>TO-DO LIST</h1>
+        <div id="line"></div>
+        <form class="task-input" action="/todos/createTodo" method='POST'>
+            <input type="text" id="add-task" name="todoItem" placeholder="Add New Item..." value="">
+            <div class="flex-button">
+                <input type="submit" value="➕" name='add' id="add-btn" title="Add Task">
 
-    <form action="/todos/createTodo" method='POST'>
-        <input type="text" placeholder="Enter Todo Item" name='todoItem'>
-        <input type="submit">
-    </form>
-
+            </div>
+        </form>
+        <div class="new-tasks">
+            <p>Click the item to cross it out. Click the 'X' to delete the item.</p>
+            <% todos.forEach( el=> { %>
+                <div class="task" data-id='<%=el._id%>'>
+                    <span class='<%= el.completed === true ? "completed" : "not"%>'>
+                        <%= el.todo %>
+                    </span>
+                    <input class='del' type="button" value="❌" id="del-task">
+                </div>
+                <% }) %>
+        </div>
+    </div>
+    <h2>Things left to do: <%= left %>
+    </h2>
     <script src="js/main.js"></script>
+
 </body>
+
 </html>

@@ -5,6 +5,7 @@ const homeRoutes = require('./routes/home')
 const todoRoutes = require('./routes/todos')
 
 
+
 require('dotenv').config({path: './config/.env'})
 
 connectDB()
