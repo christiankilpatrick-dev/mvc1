@@ -27,7 +27,6 @@
             <br>
             <% todos.forEach( el=> { %>
                 <div class="task" data-id='<%=el._id%>'>
-                    <input class='del' type="button" value="❌" id="del-task">
                     <span class='<%= el.completed === true ? "completed" : "not"%>'>
                         <%= el.todo %>
                     </span>
