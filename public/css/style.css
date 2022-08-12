@@ -80,7 +80,9 @@ input[type='button'] {
     margin-right: -4px;
     background-color: #44de2c;
 }
-
+.info {
+    font-weight: bold;
+}
 #del-btn {
     background-color: #540a0a;
 }
@@ -113,7 +115,6 @@ input[type='button']:active {
     margin: 10px auto;
     display: flex;
     justify-content: space-between;
-    font-weight: bold;
 
 }
 
