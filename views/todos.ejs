@@ -23,7 +23,7 @@
             </div>
         </form>
         <div class="new-tasks">
-            <p>Click the item to cross it out. Click the 'X' to delete the item.</p>
+            <p>Click on each item to mark it complete. Click on the 'X' to delete that item.</p>
             <% todos.forEach( el=> { %>
                 <div class="task" data-id='<%=el._id%>'>
                     <span class='<%= el.completed === true ? "completed" : "not"%>'>
